@@ -4,7 +4,7 @@ _java=java
 if [[ "$_java" ]]; then
     # VERSION=$("$_java" -Xms500M -Xmx500M -version 2>&1 | awk -F '"' '/version/ {print $2}')
     VERSION=$($_java -version 2>&1 \
-          | head -1 \
+          | grep 'version' \
           | cut -d'"' -f2 \
           | sed 's/^1\.//' \
           | cut -d'.' -f1)
